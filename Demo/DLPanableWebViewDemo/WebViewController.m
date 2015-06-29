@@ -12,7 +12,6 @@
 
 @interface WebViewController ()
 @property (weak, nonatomic) IBOutlet DLPanableWebView *webView;
-
 @end
 
 @implementation WebViewController
