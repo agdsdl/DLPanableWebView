@@ -31,7 +31,8 @@ But UIWebView does not support this gesture. So I extented UIWebView to support 
 @end
 ```
 * That's it!
-    your web view now support pan back gesture.
+
+    Your web view now support pan back gesture.
 
 #Delegate
 [Optional]
