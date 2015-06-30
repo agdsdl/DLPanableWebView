@@ -5,6 +5,12 @@ In Safari, besides tap on 'back' and 'forward' button,  you can pan left & right
 
 But UIWebView does not support this gesture. So I extented UIWebView to support the gesture(now only go back gesture).
 
+扩展了UIWebView，使其支持滑动手势返回（类似微信的In-App浏览器）。
+
+Safari里面除了点击‘前进’，‘后退’按钮，还可以通过滑动手势来前进和后退。
+
+可惜UIWebView不支持这个手势，所以我扩展了UIWebView使其支持滑动手势返回。
+
 #Screenshot
 ![DLPanableWebView](images/demo.gif)
 
