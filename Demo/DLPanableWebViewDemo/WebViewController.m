@@ -10,15 +10,31 @@
 
 #import "DLPanableWebView.h"
 
+#define IS_IPHONE_6_PLUS [UIScreen mainScreen].scale == 3
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
+
 @interface WebViewController ()
 @property (weak, nonatomic) IBOutlet DLPanableWebView *webView;
 @end
 
-@implementation WebViewController
+@implementation WebViewController{
+    id navPanTarget_;
+    SEL navPanAction_;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    // 获取系统默认手势Handler并保存
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        NSMutableArray *gestureTargets = [self.navigationController.interactivePopGestureRecognizer valueForKey:@"_targets"];
+        id gestureTarget = [gestureTargets firstObject];
+        navPanTarget_ = [gestureTarget valueForKey:@"_target"];
+        navPanAction_ = NSSelectorFromString(@"handleNavigationTransition:");
+    }
+
+    
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlString]]];
 }
 
@@ -27,14 +43,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)DLPanableWebView:(DLPanableWebView *)webView panPopGesture:(UIPanGestureRecognizer *)pan{
+    if (navPanTarget_ && [navPanTarget_ respondsToSelector:navPanAction_]) {
+        [navPanTarget_ performSelector:navPanAction_ withObject:pan];
+    }
 }
-*/
 
 @end

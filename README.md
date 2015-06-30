@@ -1,5 +1,7 @@
 # DLPanableWebView
 Extend UIWebView to support pan left to go back gesture.(like Wechat in-app browser)
+In Safari, besides tap on 'back' and 'forward' button,  you can pan left & right to go back and forward.
+But UIWebView does not support this gesture. So I extented UIWebView to support the gesture(now only go back gesture).
 
 #Screenshot
 ![DLPanableWebView](images/demo.gif)
@@ -18,7 +20,7 @@ Extend UIWebView to support pan left to go back gesture.(like Wechat in-app brow
 ```
 
 #Delegate
-You can implement the 'DLPanableWebViewHandler' protocol and set 'panDelegate' to it.
+You can implement the 'DLPanableWebViewHandler' protocol and handle the pop gesture on start page if you want.
 
 #License
 --------------------
