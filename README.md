@@ -7,7 +7,17 @@ But UIWebView does not support this gesture. So I extented UIWebView to support 
 ![DLPanableWebView](images/demo.gif)
 
 #Setup
-* Add 'DLPanableWebView.h' and 'DLPanableWebView.m' to your project.
+* Add 'DLPanableWebView' to your project.
+ * If you are using CocoaPods:
+ 
+   Add ```pod 'DLPanableWebView'``` to your [Podfile](http://cocoapods.org/)
+   
+   Run ```pod install```
+ * else
+ 
+   Run ```git clone https://github.com/agdsdl/DLPanableWebView.git``` to download our code.
+   
+   Add 'DLPanableWebView.h' and 'DLPanableWebView.m' to your project
 * Add #import
 ```objc
 #import "DLPanableWebView.h"
@@ -20,7 +30,13 @@ But UIWebView does not support this gesture. So I extented UIWebView to support 
 ```
 
 #Delegate
-You can implement the 'DLPanableWebViewHandler' protocol and handle the pop gesture on start page if you want.
+[Optional]
+
+When navigate to the root page, and can not go back any more, DLPanableWebView will pass pan gesture to 'DLPanableWebViewHandler'.
+
+You can implement the 'DLPanableWebViewHandler' protocol and handle the pop gesture if you want.
+For example, you can pop your WebViewController if you detect an pan back gesture.(Check the demo)
+
 
 #License
 --------------------
