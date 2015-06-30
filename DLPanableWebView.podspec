@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "DLPanableWebView"
-  s.version      = "0.9"
+  s.version      = "0.9.0"
   s.summary      = "Extend UIWebView to support pan left to go back gesture.(like Wechat in-app browser)"
 
   s.description  = <<-DESC
