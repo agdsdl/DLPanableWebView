@@ -14,6 +14,10 @@ Safari里面除了点击‘前进’，‘后退’按钮，还可以通过滑�
 #Screenshot
 ![DLPanableWebView](images/demo.gif)
 
+#Requirements
+* IOS6.1 or later
+* ARC
+
 #Setup
 * Add 'DLPanableWebView' to your project.
  * If you are using CocoaPods:
