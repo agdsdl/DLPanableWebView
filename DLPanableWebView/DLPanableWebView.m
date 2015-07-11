@@ -17,7 +17,7 @@
     NSMutableArray *historyStack_;
     UIImageView *_historyView;
     
-    id<UIWebViewDelegate> originDelegate_;
+    __weak id<UIWebViewDelegate> originDelegate_;
 }
 
 + (UIImage *)screenshotOfView:(UIView *)view{
@@ -106,6 +106,14 @@
     [super setDelegate:self];
     
     [DLPanableWebView addShadowToView:self];
+}
+
+- (void)dealloc{
+    //NSLog(@"DLPanableWebView dealloc");
+    if (_historyView) {
+        [_historyView removeFromSuperview];
+        _historyView = nil;
+    }
 }
 
 - (void)layoutSubviews{

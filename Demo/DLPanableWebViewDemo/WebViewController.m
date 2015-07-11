@@ -37,7 +37,9 @@
     
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlString]]];
 }
-
+- (void)dealloc{
+    NSLog(@"WebViewController dealloc");
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
