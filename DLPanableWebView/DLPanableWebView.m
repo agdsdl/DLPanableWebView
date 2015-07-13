@@ -201,8 +201,8 @@
     
     BOOL isTopLevelNavigation = [request.mainDocumentURL isEqual:request.URL];
     
-    BOOL isHTTP = [request.URL.scheme isEqualToString:@"http"] || [request.URL.scheme isEqualToString:@"https"];
-    if (ret && !isFragmentJump && isHTTP && isTopLevelNavigation) {
+    BOOL isHTTPOrFile = [request.URL.scheme isEqualToString:@"http"] || [request.URL.scheme isEqualToString:@"https"] || [request.URL.scheme isEqualToString:@"file"];
+    if (ret && !isFragmentJump && isHTTPOrFile && isTopLevelNavigation) {
         if ((navigationType == UIWebViewNavigationTypeLinkClicked || navigationType == UIWebViewNavigationTypeOther) && [[webView.request.URL description] length]) {
             if (![[[historyStack_ lastObject] objectForKey:@"url"] isEqualToString:[self.request.URL description]]) {
                 UIImage *curPreview = [DLPanableWebView screenshotOfView:self];
