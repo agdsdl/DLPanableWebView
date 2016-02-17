@@ -99,9 +99,6 @@
 
 - (void)commonInit{
     historyStack_ = [NSMutableArray array];
-    
-    popGesture_ = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
-    [self addGestureRecognizer:popGesture_];
 
     [super setDelegate:self];
     
@@ -214,6 +211,14 @@
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView{
+    if (![self canGoBack] || historyStack_.count == 0) {
+        [self removeGestureRecognizer:popGesture_];
+        popGesture_ = nil;
+    }else if(!popGesture_){
+        popGesture_ = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
+        [self addGestureRecognizer:popGesture_];
+    }
+
     //[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     if (originDelegate_ && [originDelegate_ respondsToSelector:@selector(webViewDidStartLoad:)]) {
         [originDelegate_ webViewDidStartLoad:webView];
