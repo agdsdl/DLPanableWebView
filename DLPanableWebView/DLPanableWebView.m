@@ -196,7 +196,10 @@
     BOOL isFragmentJump = NO;
     if (request.URL.fragment) {
         NSString *nonFragmentURL = [request.URL.absoluteString stringByReplacingOccurrencesOfString:[@"#" stringByAppendingString:request.URL.fragment] withString:@""];
-        isFragmentJump = [nonFragmentURL isEqualToString:webView.request.URL.absoluteString];
+        if (webView.request.URL.absoluteString) {
+            NSString *preNonFragmentURL = [request.URL.absoluteString stringByReplacingOccurrencesOfString:[@"#" stringByAppendingString:request.URL.fragment] withString:@""];
+            isFragmentJump = [nonFragmentURL isEqualToString:preNonFragmentURL];
+        }
     }
     
     BOOL isTopLevelNavigation = [request.mainDocumentURL isEqual:request.URL];
