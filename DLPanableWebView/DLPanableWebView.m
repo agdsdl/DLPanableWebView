@@ -197,7 +197,7 @@
     if (request.URL.fragment) {
         NSString *nonFragmentURL = [request.URL.absoluteString stringByReplacingOccurrencesOfString:[@"#" stringByAppendingString:request.URL.fragment] withString:@""];
         if (webView.request.URL.absoluteString) {
-            NSString *preNonFragmentURL = [request.URL.absoluteString stringByReplacingOccurrencesOfString:[@"#" stringByAppendingString:request.URL.fragment] withString:@""];
+            NSString *preNonFragmentURL = [webView.request.URL.absoluteString stringByReplacingOccurrencesOfString:[@"#" stringByAppendingString:webView.request.URL.fragment] withString:@""];
             isFragmentJump = [nonFragmentURL isEqualToString:preNonFragmentURL];
         }
     }
