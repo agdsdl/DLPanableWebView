@@ -1,4 +1,6 @@
 # DLPanableWebView
+[![Build Status](https://travis-ci.org/agdsdl/DLPanableWebView.svg?branch=master)](https://travis-ci.org/agdsdl/DLPanableWebView)
+
 Extend UIWebView to support pan left to go back gesture(like Wechat in-app browser).
 
 In Safari, besides tap on 'back' and 'forward' button,  you can pan left & right to go back and forward.
@@ -21,14 +23,14 @@ Safari里面除了点击‘前进’，‘后退’按钮，还可以通过滑�
 #Setup
 * Add 'DLPanableWebView' to your project.
  * If you are using CocoaPods:
- 
+
      Add ```pod 'DLPanableWebView'``` to your [Podfile](http://cocoapods.org/)
- 
+
      Run ```pod install```
  * else
- 
+
      Run ```git clone https://github.com/agdsdl/DLPanableWebView.git``` to download our code.
-   
+
      Add 'DLPanableWebView.h' and 'DLPanableWebView.m' to your project.
 * Add #import
 ```objc
