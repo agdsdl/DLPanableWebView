@@ -13,14 +13,14 @@ Safari里面除了点击‘前进’，‘后退’按钮，还可以通过滑�
 
 可惜UIWebView不支持这个手势，所以我扩展了UIWebView使其支持滑动手势返回。
 
-#Screenshot
+# Screenshot
 ![DLPanableWebView](images/demo.gif)
 
-#Requirements
+# Requirements
 * IOS6.1 or later
 * ARC
 
-#Setup
+# Setup
 * Add 'DLPanableWebView' to your project.
  * If you are using CocoaPods:
 
@@ -46,7 +46,7 @@ Safari里面除了点击‘前进’，‘后退’按钮，还可以通过滑�
 
     Your web view now support pan back gesture.
 
-#Delegate
+# Delegate
 [Optional]
 
 When navigate to the root page, and can not go back any more, ```DLPanableWebView``` will pass pan gesture to ```DLPanableWebViewHandler```.
@@ -55,6 +55,6 @@ You can implement the ```DLPanableWebViewHandler``` protocol and handle the pan 
 For example, you can pop your WebViewController if you detect an pan back gesture(Check the demo).
 
 
-#License
+# License
 --------------------
     The MIT License (MIT)
