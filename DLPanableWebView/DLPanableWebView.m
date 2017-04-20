@@ -45,6 +45,9 @@
 }
 
 - (void)setDelegate:(id<UIWebViewDelegate>)delegate{
+    if (delegate == nil) {
+        [super setDelegate:nil];
+    }
     originDelegate_ = delegate;
 }
 
