@@ -130,7 +130,7 @@
 
         return;
     }
-    
+    [self historyView].hidden = NO;
     CGPoint point = [sender translationInView:self];
     if (sender.state == UIGestureRecognizerStateBegan) {
         panStartX_ = point.x;
@@ -178,7 +178,7 @@
                     rc.origin.x = -self.bounds.size.width/2.0f;
                     [self historyView].frame = rc;
                 } completion:^(BOOL finished) {
-                    
+                    [self historyView].hidden = YES;
                 }];
             }
         }
