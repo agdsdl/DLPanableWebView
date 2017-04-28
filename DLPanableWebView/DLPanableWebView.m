@@ -155,7 +155,6 @@
         CGFloat duration = .5f;
         if ([self canGoBack]) {
             if (deltaX > self.bounds.size.width/4.0f) {
-                [self goBack];
                 [UIView animateWithDuration:(1.0f - deltaX/self.bounds.size.width)*duration animations:^{
                     CGRect rc = self.frame;
                     rc.origin.x = self.bounds.size.width;
@@ -166,6 +165,7 @@
                     CGRect rc = self.frame;
                     rc.origin.x = 0;
                     self.frame = rc;
+                    [self goBack];
                     
                     [self historyView].image = nil;
                 }];
